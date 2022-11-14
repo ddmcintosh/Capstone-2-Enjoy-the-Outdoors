@@ -69,11 +69,45 @@
         </button>
     </div>
 
+    <!--National Park Search Page-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h1>Search for a National Park</h1>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <div class="mb-3">
+                            <label for="locationofPark" class="form-label">Choose By Location</label>
+                            <input id="locationofPark" type="text" class="form-control" max-form-control>
+                            <select id="statesforParks" name="statesLocation">
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="parkType" class="form-label">Choose By Park </label>
+                            <input id="parkType" type="text" class="form-control" max-form-control>
+                        </div>
+
+                        <div>
+                            <input id="searchBtn" type="button" class="btn btn-primary" value="search">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
 
 
     <script src="scripts/index.js"></script>
     <script src="scripts/locationData.js"></script>
-    <script src="scripts/mountainData.js"></script>
     <script src="scripts/nationalParkData.js"></script>
     <script src="scripts/parkTypeData.js"></script>
     <!-- JavaScript Bundle with Popper -->

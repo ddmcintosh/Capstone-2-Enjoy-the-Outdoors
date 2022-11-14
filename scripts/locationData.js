@@ -1,3 +1,5 @@
+"use strict"
+
 const locationsArray = [
     "Alabama",
     "Alaska",
@@ -55,3 +57,10 @@ const locationsArray = [
     "Wisconsin",
     "Wyoming"
 ]
+
+window.onload = function() {
+    //we want to grab the search button
+    //we want the states to populate when you hit the dropdown
+    const searchBtn = document.getElementById("searchBtn");
+    const 
+}
