@@ -65,6 +65,8 @@ function init() {
   fillStateDropdown();
   const searchBtn = document.getElementById("searchBtn");
   searchBtn.onclick = searchBtnOnClick;
+
+  // parkCheckbox = document.getElementById("parkCheckbox").style.display = "none";
 }
 
 function fillStateDropdown() {
@@ -87,5 +89,8 @@ function fillStateDropdown() {
 function searchBtnOnClick() {
   const selectState = document.getElementById("selectState");
   let selectedStateByUser = selectState.value;
+
   let message = `You selected ${selectedStateByUser}.`;
+  const stateInfo = document.getElementById("state&ParkInfo");
+  stateInfo.innerHTML = message;
 }

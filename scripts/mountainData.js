@@ -1,5 +1,7 @@
 "use strict";
 
+window.onload = init;
+
 const mountainsArray = [
   {
     name: "Mt. Washington",
@@ -530,3 +532,45 @@ const mountainsArray = [
     },
   },
 ];
+
+function init() {
+  console.log("mountainData.js");
+  fillMountainDataDropdown();
+  const searchBtn = document.getElementById("searchBtn");
+  searchBtn.onclick = searchBtnOnClick;
+}
+
+function fillMountainDataDropdown() {
+  const selectMountain = document.getElementById("selectMountain");
+  let selectMountainOption = document.createElement("option");
+  selectMountainOption.value = "";
+  selectMountainOption.textContent = "Select a mountain";
+  selectMountain.appendChild(selectMountainOption);
+
+  let mountainsArrayLength = mountainsArray.length;
+  for (let i = 0; i < mountainsArrayLength; i++) {
+    let newOption = document.createElement("option");
+    newOption.value = mountainsArray[i].desc;
+    newOption.textContent = mountainsArray[i].name;
+
+    selectMountain.appendChild(newOption);
+  }
+}
+
+function searchBtnOnClick() {
+  const selectMountain = document.getElementById("selectMountain");
+  let selectedMountainByUser = selectMountain.value;
+
+  let message = `You selected ${selectedMountainByUser}.`;
+  const mountainInfo = document.getElementById("mountainInfo");
+  mountainInfo.innerHTML = message;
+}
+
+// function that can "fetch" the sunrise/sunset times
+async function getSunsetForMountain(lat, lng) {
+  let response = await fetch(
+    `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+  );
+  let data = await response.json();
+  return data;
+}

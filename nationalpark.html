@@ -42,6 +42,8 @@
         </div>
     </nav>
 
+    <!--Carousel-->
+
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -74,18 +76,12 @@
         <div class="row">
             <div class="col">
                 <h1>Search for a National Park</h1>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="locationCheckbox" checked>
-                    <label class="form-check-label" for="locationCheckbox">
-                        By Location
-                    </label>
-                </div>
+                <div id="radioButtons">
+                    <input id="locationCheckbox" type="radio" name="selector" value="option1" /><label
+                        for="locationCheckbox">By Location</label><br />
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="parkCheckbox">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        By Park
-                    </label>
+                    <input id="parkCheckbox" type="radio" name="selector" value="option2" /><label for="parkCheckbox">By
+                        Park</label><br />
                 </div>
             </div>
 
@@ -101,12 +97,18 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="parkType" class="form-label">Choose By Park </label>
-                            <input id="parkType" type="textbox" class="form-control" max-form-control>
+                            <label for="parkTypes" class="form-label">Choose By Park</label>
+
+                            <select id="selectPark" class="form-control" name="parkTypes">
+                            </select>
                         </div>
 
                         <div>
                             <input id="searchBtn" type="button" class="btn btn-primary" value="search">
+                        </div>
+
+                        <div>
+                            <p id="state&ParkInfo"></p>
                         </div>
 
                     </form>
@@ -119,10 +121,11 @@
     </div>
 
 
-    <script src="scripts/index.js"></script>
+
     <script src="scripts/locationData.js"></script>
     <script src="scripts/nationalParkData.js"></script>
     <script src="scripts/parkTypeData.js"></script>
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
