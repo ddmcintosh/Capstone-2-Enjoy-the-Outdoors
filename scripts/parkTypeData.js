@@ -25,22 +25,7 @@ function init() {
   searchBtn.onclick = searchBtnOnClick;
 }
 
-function fillParkTypeDropdown() {
-  const selectPark = document.getElementById("selectPark");
-  let selectParkOption = document.createElement("option");
-  selectParkOption.value = "";
-  selectParkOption.textContent = "Select a Park...";
-  selectPark.appendChild(selectParkOption);
 
-  let parkTypesArrayLength = parkTypesArray.length;
-  for (let i = 0; i < parkTypesArrayLength; i++) {
-    let newOption = document.createElement("option");
-    newOption.value = parkTypesArray[i];
-    newOption.textContent = parkTypesArray[i];
-
-    selectPark.appendChild(newOption);
-  }
-}
 
 function searchBtnOnClick() {
   const selectPark = document.getElementById("selectPark");

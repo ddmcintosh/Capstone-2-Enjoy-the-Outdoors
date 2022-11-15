@@ -77,18 +77,19 @@
             <div class="col">
                 <h1>Search for a National Park</h1>
                 <div id="radioButtons">
-                    <input id="locationCheckbox" type="radio" name="selector" value="option1" /><label
+                    <input id="locationCheckbox" type="radio" name="searchOption" value="location" /><label
                         for="locationCheckbox">By Location</label><br />
 
-                    <input id="parkCheckbox" type="radio" name="selector" value="option2" /><label for="parkCheckbox">By
+                    <input id="parkCheckbox" type="radio" name="searchOption" value="type" /><label
+                        for="parkCheckbox">By
                         Park</label><br />
                 </div>
             </div>
-
+            <p id="test"></p>
             <div class="row">
                 <div class="col">
                     <form>
-                        <div class="mb-3">
+                        <div id="searchLocation" class="mb-3">
                             <label for="locationofPark" class="form-label">Choose By Location</label>
 
 
@@ -96,7 +97,7 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
+                        <div id="searchType" class="mb-3">
                             <label for="parkTypes" class="form-label">Choose By Park</label>
 
                             <select id="selectPark" class="form-control" name="parkTypes">
@@ -122,9 +123,13 @@
 
 
 
+
     <script src="scripts/locationData.js"></script>
-    <script src="scripts/nationalParkData.js"></script>
-    <script src="scripts/parkTypeData.js"></script>
+
+
+
+
+
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

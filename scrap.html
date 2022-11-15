@@ -34,5 +34,51 @@ else {
 }
 
 {
-locationCheckbox.style.display = "block";
+locationCheckbox.style.display = "none";
+}
+
+
+
+
+const radioButtons = document.getElementById("radioButtons");
+radioButtons.onchange = radioButtonsOnChange;
+
+
+function radioButtonsOnChange() {
+if (document.getElementById("selectState").checked) {
+radioButtons.style.display = "block";
+} else {
+radioButtons.style.display = "none";
+}
+}
+
+
+
+
+const radioButtons = document.getElementById("radioButtons");
+  radioButtons.onchange = radioButtonsOnChange;
+}
+
+function radioButtonsOnChange() {
+  if (document.getElementById("selectState").checked) {
+    radioButtons.style.display = "block";
+  } else {
+    radioButtons.style.display = "none";
+  }
+}
+
+
+
+let message = `You selected ${selectedMountainByUser}.`;
+  
+  mountainInfo.innerHTML = message;
+}
+
+// function that can "fetch" the sunrise/sunset times
+async function getSunsetForMountain(lat, lng) {
+  let response = await fetch(
+    `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+  );
+  let data = await response.json();
+  return data;
 }

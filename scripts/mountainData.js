@@ -559,18 +559,24 @@ function fillMountainDataDropdown() {
 
 function searchBtnOnClick() {
   const selectMountain = document.getElementById("selectMountain");
+  const mountainInfo = document.getElementById("mountainInfo");
+
   let selectedMountainByUser = selectMountain.value;
 
-  let message = `You selected ${selectedMountainByUser}.`;
-  const mountainInfo = document.getElementById("mountainInfo");
-  mountainInfo.innerHTML = message;
-}
-
-// function that can "fetch" the sunrise/sunset times
-async function getSunsetForMountain(lat, lng) {
-  let response = await fetch(
-    `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
-  );
-  let data = await response.json();
-  return data;
+  for (let mountain of mountainsArray) {
+    if (selectMountain == mountain[i].name) {
+      mountainInfo.innerHTML =
+        "Name: " +
+        mountain[i].name +
+        "<br />" +
+        "Elevation:" +
+        mountain[i].elevation +
+        "ft" +
+        "<br />" +
+        "Description" +
+        mountain[i].desc;
+    } else if (selectMountain == "") {
+      mountainInfo.innerHTML = "";
+    }
+  }
 }
