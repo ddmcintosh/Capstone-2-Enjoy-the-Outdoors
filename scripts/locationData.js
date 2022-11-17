@@ -5892,6 +5892,11 @@ const locationsArray = [
 ];
 
 function init() {
+const filterOptionsList = document.getElementById("filterOptionsList");
+
+
+
+
   console.log("locationData.js");
   fillStateDropdown();
   fillParkTypeDropdown();

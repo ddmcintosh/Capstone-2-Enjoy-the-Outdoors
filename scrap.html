@@ -82,3 +82,130 @@ async function getSunsetForMountain(lat, lng) {
   let data = await response.json();
   return data;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scrap java 
+function init() {
+    const filterOptionsList = document.getElementById("filterOptionsList");
+    
+    
+    
+    
+      console.log("locationData.js");
+      fillStateDropdown();
+      fillParkTypeDropdown();
+      const searchBtn = document.getElementById("searchBtn");
+    
+      searchBtn.onclick = searchBtnOnClick;
+      showCorrectSearchOption();
+    
+      const locationCheckbox = document.getElementById("locationCheckbox");
+      const parkCheckbox = document.getElementById("parkCheckbox");
+      locationCheckbox.onchange = locationCheckboxOnChange;
+      parkCheckbox.onchange = parkCheckboxOnChange;
+    }
+    
+    function locationCheckboxOnChange() {
+      const locationCheckbox = document.getElementById("locationCheckbox");
+    
+      if (locationCheckbox.checked) {
+        showCorrectSearchOption();
+      }
+    }
+    
+    function parkCheckboxOnChange() {
+      const parkCheckbox = document.getElementById("parkCheckbox");
+    
+      if (parkCheckbox.checked) {
+        showCorrectSearchOption();
+      }
+    }
+    
+    function fillStateDropdown() {
+      const selectState = document.getElementById("selectState");
+      let selectStateOption = document.createElement("option");
+      selectStateOption.value = "";
+      selectStateOption.textContent = "Select a State...";
+      selectState.appendChild(selectStateOption);
+    
+      let locationsArrayLength = locationsArray.length;
+      for (let i = 0; i < locationsArrayLength; i++) {
+        let newOption = document.createElement("option");
+        newOption.value = locationsArray[i];
+        newOption.textContent = locationsArray[i];
+    
+        selectState.appendChild(newOption);
+      }
+    }
+    
+    function searchBtnOnClick() {
+      const selectState = document.getElementById("selectState");
+      let selectedStateByUser = selectState.value;
+    
+      let messageLocation = `You selected ${selectedStateByUser}.`;
+      const stateInfo = document.getElementById("state&ParkInfo");
+      stateInfo.innerHTML = messageLocation;
+    
+      const selectPark = document.getElementById("selectPark");
+      let selectedParkByUser = selectPark.value;
+    
+      let messagePark = `You selected ${selectedParkByUser}.`;
+      const parkInfo = document.getElementById("state&ParkInfo");
+      parkInfo.innerHTML = messagePark;
+    }
+    
+    function showCorrectSearchOption() {
+      const locationCheckbox = document.getElementById("locationCheckbox");
+      const parkCheckbox = document.getElementById("parkCheckbox");
+    
+      let selectedOption;
+    
+      if (locationCheckbox.checked) {
+        selectedOption = "location";
+      } else if (parkCheckbox.checked) {
+        selectedOption = "type";
+      }
+    
+      //hide things
+    
+      const test = document.getElementById("test");
+      test.innerHTML = selectedOption;
+    }
+    
+    function fillParkTypeDropdown() {
+      const selectPark = document.getElementById("selectPark");
+      let selectParkOption = document.createElement("option");
+      selectParkOption.value = "";
+      selectParkOption.textContent = "Select a Park...";
+      selectPark.appendChild(selectParkOption);
+    
+      let parkTypesArrayLength = parkTypesArray.length;
+      for (let i = 0; i < parkTypesArrayLength; i++) {
+        let newOption = document.createElement("option");
+        newOption.value = parkTypesArray[i];
+        newOption.textContent = parkTypesArray[i];
+    
+        selectPark.appendChild(newOption);
+      }
+    }
+    

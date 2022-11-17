@@ -1,5 +1,7 @@
 "use strict";
 
+window.onload = init;
+
 const mountainsArray = [
   {
     name: "Mt. Washington",
@@ -531,65 +533,65 @@ const mountainsArray = [
   },
 ];
 
-const selectMountain = document.getElementById("selectMountain");
-const mountainInfo = document.getElementById("mountainInfo");
-const mountainInfoCard = document.getElementById("mountainInfoCard");
-const mountainInfoCardTitle = document.getElementById("MountainInfoCardTitle");
-const mountainInfoCardImg = document.getElementById("mountainInfoCardImg");
-let option = new Option("Select a mountain", "select");
-selectMountain.appendChild(option);
-
-window.onload = init;
-
 function init() {
-  initMountainDropdown();
-  selectMountain.onchange = displayMountainInfo;
+  console.log("extramountain.js");
+  fillMountainDataDropdown();
+  const searchBtn = document.getElementById("searchBtn");
+  searchBtn.onclick = searchBtnOnClick;
 }
 
-function initMountainDropdown() {
-  for (let mountain of mountainsArray) {
-    let option = new Option(mountain.name, mountain.name);
-    selectMountain.appendChild(option);
+function fillMountainDataDropdown() {
+  const selectMountain = document.getElementById("selectMountain");
+  let selectMountainOption = document.createElement("option");
+  selectMountainOption.value = "";
+  selectMountainOption.textContent = "Select a mountain";
+  selectMountain.appendChild(selectMountainOption);
+
+  const mountainInfo = document.getElementById("mountainInfo");
+  const mountainInfoCard = document.getElementById("mountainInfoCard");
+  const mountainInfoCardTitle = document.getElementById(
+    "MountainInfoCardTitle"
+  );
+  const mountainInfoCardImg = document.getElementById("mountainInfoCardImg");
+
+  let mountainsArrayLength = mountainsArray.length;
+  for (let i = 0; i < mountainsArrayLength; i++) {
+    let newOption = document.createElement("option");
+    newOption.value = mountainsArray[i].desc;
+    newOption.textContent = mountainsArray[i].name;
+
+    selectMountain.appendChild(newOption);
+  }
+
+  async function getSunsetForMountain(lat, lng) {
+    let response = await fetch(
+      `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+    );
+    let data = await response.json();
+    return data;
   }
 }
 
-async function getSunsetForMountain(lat, lng) {
-  let response = await fetch(
-    `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
-  );
-  let data = await response.json();
-  return data;
-}
+function searchBtnOnClick() {
+  const selectMountain = document.getElementById("selectMountain");
+  const mountainInfo = document.getElementById("mountainInfo");
 
-function displayMountainInfo() {
-  // let timeInfo = {};
-  mountainInfo.innerHTML = "";
+  let selectedMountainByUser = selectMountain.value;
+
   for (let mountain of mountainsArray) {
-    if (selectMountain.value == "select") {
-      mountainInfoCard.style.display = "none";
-    } else if (mountain.name == selectMountain.value) {
-      mountainInfoCardTitle.innerText = mountain.name;
-      mountainInfo.innerHTML +=
-        "<span class='fw-bold'>Description: </span>" +
-        mountain.desc +
-        "<br><span class='fw-bold'>Elevation: </span>" +
-        mountain.elevation +
-        "<br><span class='fw-bold'>Coordinates: </span>" +
-        mountain.coords.lat +
-        ", " +
-        mountain.coords.lng;
-      getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(
-        (data) => {
-          mountainInfo.innerHTML +=
-            "<br><span class='fw-bold'>Sunrise Time: </span>" +
-            data.results.sunrise +
-            "<br><span class='fw-bold'>Sunset Time: </span>" +
-            data.results.sunset;
-        }
-      );
-      mountainInfoCardImg.src = "images/" + mountain.img;
-      mountainInfoCard.style.display = "block";
-      break;
+    if (selectMountain.value == mountain[i].name) {
+      mountainInfo.innerHTML =
+        "Name: " +
+        mountain[i].name +
+        "<br />" +
+        "Elevation:" +
+        mountain[i].elevation +
+        "ft" +
+        "<br />" +
+        "Description" +
+        mountain[i].desc;
+    } else if (selectMountain == "") {
+      mountainInfo.innerHTML = "";
     }
   }
 }

@@ -47,16 +47,16 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/Bond-StoryImage_3.jpg" class="d-block w-100" width="500" height="450"
-                    alt="Bond Hiking Trail">
+                <img src="images/Adams-StoryImage_2.jpg" class="d-block w-100" width="500" height="450"
+                    alt="Adam Mountain">
             </div>
             <div class="carousel-item">
-                <img src="images/Galehead-StoryImg.jpg" class="d-block w-100" width="500" height="450"
-                    alt="Galehead Park">
+                <img src="images/Cannon-StoryImg_2.jpg" class="d-block w-100" width="500" height="450"
+                    alt="Cannon Mountain">
             </div>
             <div class="carousel-item">
-                <img src="images/Tecumseh-StoryImg.jpg" class="d-block w-100" width="500" height="450"
-                    alt="Tecumseh Hiking Trail">
+                <img src="images/CDome-StoryImage.jpg" class="d-block w-100" width="500" height="450"
+                    alt="CDome Mountain">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -71,52 +71,40 @@
         </button>
     </div>
 
-    <!--National Park Search Page-->
+
+    <!--Mountain Data -->
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>Search for a National Park</h1>
-                <div class="col-md-6 offset-md-3">
-                    <select class="form-select" aria-label="filterOptions" id="filterOptionsList" name="filterOptions">
-                        <option value="select">Filter By</option>
-                        <option value="location">Location</option>
-                        <option value="type">Park </option>
-                        <option value="all">View National Parks</option>
+                <h1>Search for a Mountain Range</h1>
 
-                    </select>
-
-                </div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <form>
-                        <div id="searchLocation" class="mb-3">
+                        <div class="mb-3">
+                            <label for="locationofPark" class="form-label">Choose a Mountain Range</label>
 
-                            <select id="selectState" class="form-control" name="statesLocation">
+
+                            <select id="selectMountain" class="form-control" name="mountain">
                             </select>
                         </div>
 
-                        <div id="searchType" class="mb-3">
+                        <div class="mb-3">
+                            <div class="card" id="mountainInfoCard">
 
-                            <select id="selectPark" class="form-control" name="Choose By Park">
-                            </select>
-                        </div>
+                                <img src="..." class="card-img-top" id="mountainInfoCardImg">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="MountainInfoCardTitle"></h5>
+                                    <p class="card-text" id="mountainInfo"></p>
+                                </div>
+                            </div>
 
-                        <div id="searchNationalPark" class="mb-3">
-                            <select id="selectNationalPark" class="form-control" name="Choose By National Park">
-                            </select>
-                        </div>
+                            <div>
+                                <input id="searchBtn" type="button" class="btn btn-primary" value="search">
+                            </div>
 
-
-                        <div>
-                            <input id="searchBtn" type="button" class="btn btn-primary" value="search">
-
-                        </div>
-
-                        <div>
-                            <p id="state&ParkInfo"></p>
-                        </div>
 
                     </form>
                 </div>
@@ -127,14 +115,7 @@
         </div>
     </div>
 
-
-
-
-    <script src="scripts/locationData.js"></script>
-
-
-
-
+    <script src="scripts/extramountain.js"></script>
 
 
     <!-- JavaScript Bundle with Popper -->
