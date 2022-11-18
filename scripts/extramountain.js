@@ -547,13 +547,6 @@ function fillMountainDataDropdown() {
   selectMountainOption.textContent = "Select a mountain";
   selectMountain.appendChild(selectMountainOption);
 
-  const mountainInfo = document.getElementById("mountainInfo");
-  const mountainInfoCard = document.getElementById("mountainInfoCard");
-  const mountainInfoCardTitle = document.getElementById(
-    "MountainInfoCardTitle"
-  );
-  const mountainInfoCardImg = document.getElementById("mountainInfoCardImg");
-
   let mountainsArrayLength = mountainsArray.length;
   for (let i = 0; i < mountainsArrayLength; i++) {
     let newOption = document.createElement("option");
@@ -562,24 +555,18 @@ function fillMountainDataDropdown() {
 
     selectMountain.appendChild(newOption);
   }
-
-  async function getSunsetForMountain(lat, lng) {
-    let response = await fetch(
-      `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
-    );
-    let data = await response.json();
-    return data;
-  }
 }
 
 function searchBtnOnClick() {
   const selectMountain = document.getElementById("selectMountain");
   const mountainInfo = document.getElementById("mountainInfo");
 
+  const mountainInfoCardImg = document.getElementById(" mountainInfoCardImg");
+
   let selectedMountainByUser = selectMountain.value;
 
   for (let mountain of mountainsArray) {
-    if (selectMountain.value == mountain[i].name) {
+    if (selectedMountainByUser == mountain[i].name) {
       mountainInfo.innerHTML =
         "Name: " +
         mountain[i].name +
@@ -590,8 +577,16 @@ function searchBtnOnClick() {
         "<br />" +
         "Description" +
         mountain[i].desc;
-    } else if (selectMountain == "") {
+    } else if (selectedMountainByUser == "") {
       mountainInfo.innerHTML = "";
     }
+  }
+
+  async function getSunsetForMountain(lat, lng) {
+    let response = await fetch(
+      `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+    );
+    let data = await response.json();
+    return data;
   }
 }
