@@ -77,6 +77,13 @@ li {
 /* Park */ 
 #parksDescription.card {
 padding-right: 30px;
+padding: 20px;
+}
+
+/* Mountain */
+.col {
+    padding-left: 50px;
+    padding-bottom: 30px;
 }
 
 /* Footer */
