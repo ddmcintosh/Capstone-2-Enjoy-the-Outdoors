@@ -2,7 +2,6 @@
 
 window.onload = init;
 
-
 const parkTypesArray = [
   "National Park",
   "National Monument",
@@ -5891,106 +5890,74 @@ const locationsArray = [
   "Wyoming",
 ];
 
+window.onload = init;
+
 function init() {
-const filterOptionsList = document.getElementById("filterOptionsList");
-
-
-
-
-  console.log("locationData.js");
-  fillStateDropdown();
-  fillParkTypeDropdown();
-  const searchBtn = document.getElementById("searchBtn");
-
-  searchBtn.onclick = searchBtnOnClick;
-  showCorrectSearchOption();
-
-  const locationCheckbox = document.getElementById("locationCheckbox");
-  const parkCheckbox = document.getElementById("parkCheckbox");
-  locationCheckbox.onchange = locationCheckboxOnChange;
-  parkCheckbox.onchange = parkCheckboxOnChange;
+  selectLocationShow();
+  selectParktypeHide();
+  populateLocationOptions();
+  populateParktypeOptions();
 }
 
-function locationCheckboxOnChange() {
-  const locationCheckbox = document.getElementById("locationCheckbox");
+//load up options from data file.
+function populateLocationOptions() {}
 
-  if (locationCheckbox.checked) {
-    showCorrectSearchOption();
+//load up options from data file.
+function populateParktypeOptions() {}
+
+//figure out which is the selected optoin, and hide/show the appropriate areas...
+function OnSearchTypeChanged() {
+  let current = getCurrentlySelectedSearchType();
+  if (current == "location") {
+    selectLocationShow();
+    selectParktypeHide();
+  } else if ((current = "parktype")) {
+    selectLocationHide();
+    selectParktypeShow();
   }
 }
 
-function parkCheckboxOnChange() {
-  const parkCheckbox = document.getElementById("parkCheckbox");
+function filterParksByParkType(inputParks, parkType) {
+  let results = [];
 
-  if (parkCheckbox.checked) {
-    showCorrectSearchOption();
+  return results;
+}
+
+function filterParksByLocation(inputParks, location) {
+  let results = [];
+
+  return results;
+}
+
+//returns "location" or "parktype" depending on current selection
+function getCurrentlySelectedSearchType() {}
+
+function selectLocationHide() {}
+
+function selectLocationShow() {}
+
+function selectParktypeHide() {}
+
+function selectParktypeShow() {}
+
+function clearSearchResults() {}
+
+//Add an array of parks to the results div...
+function addParksToResults(parks) {
+  for (let park of parks) {
+    addParkToResults(park);
   }
 }
 
-function fillStateDropdown() {
-  const selectState = document.getElementById("selectState");
-  let selectStateOption = document.createElement("option");
-  selectStateOption.value = "";
-  selectStateOption.textContent = "Select a State...";
-  selectState.appendChild(selectStateOption);
+//Adds a single park to the results div.
+function addParkToResults(park) {
+  const resultsRow = document.getElementById("resultsRow");
 
-  let locationsArrayLength = locationsArray.length;
-  for (let i = 0; i < locationsArrayLength; i++) {
-    let newOption = document.createElement("option");
-    newOption.value = locationsArray[i];
-    newOption.textContent = locationsArray[i];
+  let outerCardDiv = document.createElement("div");
+  //create the html to represetn a single park, and add it to the
+  // serach reasults div with "resultsRow" id
 
-    selectState.appendChild(newOption);
-  }
-}
+  //do all of my styling / content here....
 
-function searchBtnOnClick() {
-  const selectState = document.getElementById("selectState");
-  let selectedStateByUser = selectState.value;
-
-  let messageLocation = `You selected ${selectedStateByUser}.`;
-  const stateInfo = document.getElementById("state&ParkInfo");
-  stateInfo.innerHTML = messageLocation;
-
-  const selectPark = document.getElementById("selectPark");
-  let selectedParkByUser = selectPark.value;
-
-  let messagePark = `You selected ${selectedParkByUser}.`;
-  const parkInfo = document.getElementById("state&ParkInfo");
-  parkInfo.innerHTML = messagePark;
-}
-
-function showCorrectSearchOption() {
-  const locationCheckbox = document.getElementById("locationCheckbox");
-  const parkCheckbox = document.getElementById("parkCheckbox");
-
-  let selectedOption;
-
-  if (locationCheckbox.checked) {
-    selectedOption = "location";
-  } else if (parkCheckbox.checked) {
-    selectedOption = "type";
-  }
-
-  //hide things
-
-  const test = document.getElementById("test");
-  test.innerHTML = selectedOption;
-}
-
-function fillParkTypeDropdown() {
-  const selectPark = document.getElementById("selectPark");
-  let selectParkOption = document.createElement("option");
-  selectParkOption.value = "";
-  selectParkOption.textContent = "Select a Park...";
-  selectPark.appendChild(selectParkOption);
-
-  let parkTypesArrayLength = parkTypesArray.length;
-  for (let i = 0; i < parkTypesArrayLength; i++) {
-    let newOption = document.createElement("option");
-    newOption.value = parkTypesArray[i];
-    newOption.textContent = parkTypesArray[i];
-
-    selectPark.appendChild(newOption);
-  }
+  resultsRow.appendChild(outerCardDiv);
 }

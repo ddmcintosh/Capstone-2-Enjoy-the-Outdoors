@@ -30,6 +30,54 @@ iframe {
     padding-left: 50px;
     margin-top: 50px;
 }
+.carousel-item:active {
+    margin: 3%;
+    position: relative;
+
+
+}
+
+
+.hero-txt {
+    top: 17px;
+    left: 30px;
+    text-align: center;
+
+}
+
+.carousel-caption {
+    margin-bottom: 300px;
+    font-size: 50px;
+    color: #e80087;
+
+}
+
+a:link {
+    color: #785289;
+}
+
+a:hover {
+    background-color: rgb(175, 28, 97);
+}
+
+ul {
+    padding: 35px;
+    font-size: 16px;
+}
+
+li {
+    padding: 35px;
+    font-size: 16px;
+}
+
+#selectOptions {
+    padding-top: 20px;
+}
+
+/* Park */ 
+#parksDescription.card {
+padding-right: 30px;
+}
 
 /* Footer */
 footer {
@@ -43,7 +91,7 @@ footer {
   }
 
   footer p{
-    color: blueviolet;
+    color: rgb(17, 7, 25);
   }
 
   footer li{
