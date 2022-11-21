@@ -1,4 +1,14 @@
+div.container-fluid {
+    background-color: pink;
+}
+
 h1 {
+    padding-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
     padding-left: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -16,9 +26,12 @@ img {
     margin-top: 50px;
 }
 
+iframe {
+    padding-left: 50px;
+    margin-top: 50px;
+}
 
 /* Footer */
-  
 footer {
     background-color: pink;
   }
@@ -50,4 +63,3 @@ footer {
     color: #0b5604;
   }
 
-  
