@@ -15,3 +15,39 @@ img {
     padding-left: 50px;
     margin-top: 50px;
 }
+
+
+/* Footer */
+  
+footer {
+    background-color: pink;
+  }
+
+  footer h5{
+    color: #e12a95;
+    font-weight:700 ;
+    font-size: 1.2rem;
+  }
+
+  footer p{
+    color: blueviolet;
+  }
+
+  footer li{
+     padding-bottom: 4px;
+  }
+
+  footer li a{
+    font-size: 0.8rem;
+    color:rgb(14, 13, 11)
+  }
+
+  footer li a:hover{
+    color: #d8d8d8;
+  }
+
+  footer li i:hover{
+    color: #0b5604;
+  }
+
+  
