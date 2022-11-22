@@ -5890,8 +5890,6 @@ const locationsArray = [
   "Wyoming",
 ];
 
-window.onload = init;
-
 function init() {
   selectLocationShow();
   selectParktypeHide();
