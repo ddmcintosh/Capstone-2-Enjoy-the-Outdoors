@@ -14,68 +14,72 @@
 </head>
 
 <body>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <img src="images/Mayak-Water-Logo.png" alt="Mayak Logo" height="50px">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img src="images/Mayak-Water-Logo.png" alt="Mayak Logo" height="50px">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="park.html">National Park Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mountains.html">Mountains Information Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!--Carousel-->
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/mt everest.png" class="d-block w-100" height="750px" alt="Mt Everest Mountain">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/mountain2.png" class="d-block w-100" height="750px" alt="Aconcagua">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/mountain3.png" class="d-block w-100" height="750" alt="Denali Mountain">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="park.html">National Park Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mountains.html">Mountains Information Page</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </nav>
 
-    <!--Carousel-->
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/mt everest.png" class="d-block w-100" height="750px" alt="Mt Everest Mountain">
-            </div>
-            <div class="carousel-item">
-                <img src="images/mountain2.png" class="d-block w-100" height="750px" alt="Aconcagua">
-            </div>
-            <div class="carousel-item">
-                <img src="images/mountain3.png" class="d-block w-100" height="750" alt="Denali Mountain">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    </header>
 
 
     <!--Mountain Data -->
     <main>
-
         <div id="defaultBgImg"></div>
 
         <h1 class="display-1 text-dark text-center">Choose a Mountain to Explore</h1>
@@ -84,7 +88,7 @@
             <form>
                 <div class="row"></div>
                 <label for="mountainDropdown" class="form-label text-dark">Mountains in the US</label>
-                <select class="form-control" id="mountainDropDown"></select>
+                <select id="mountainDropdown" class="form-control"></select>
             </form>
         </div>
 
@@ -93,8 +97,7 @@
                 <p></p>
             </div>
 
-            <div id="divToPutResults" class="row">
-
+            <div id="divResults" class="row">
             </div>
         </div>
 

@@ -532,3 +532,140 @@ const mountainsArray = [
     },
   },
 ];
+
+function init() {
+  console.log("extramountain.js");
+  addOptionstoDropdown();
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  mountainDropdown.onchange = mountainDropdownOnChange;
+}
+
+function addOptionstoDropdown() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  mountainDropdown.length = 0;
+
+  let options = document.createElement("option");
+  options.value = "";
+  options.textContent = "Select a mountain";
+  mountainDropdown.appendChild(options);
+
+  for (let mountain of mountainsArray) {
+    let mountainOptions = document.createElement("option");
+    mountainOptions.value = mountain.name;
+    mountainOptions.textContent = mountain.name;
+    mountainDropdown.appendChild(mountainOptions);
+  }
+
+  async function getSunsetForMountain(lat, lng) {
+    let response = await fetch(
+      `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+    );
+    let data = await response.json();
+    return data;
+  }
+}
+
+function mountainDropdownOnChange() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  const divResults = document.getElementById("divResults");
+  let mountainDropdownValue = mountainDropdown.value;
+  divResults.textContent = "";
+
+  if (mountainDropdownValue == "") {
+    divResults.textContent = "";
+    return;
+  }
+  let divWithCardClass = document.createElement("div");
+  divWithCardClass.className = "card bg-transparent border-0";
+  divResults.appendChild(divWithCardClass);
+
+  let cardBgImg = document.createElement("img");
+  cardBgImg.src = getMountainImg();
+  cardBgImg.className = "card-img";
+  divWithCardClass.appendChild(cardBgImg);
+
+  let divWithCardText = document.createElement("div");
+  divWithCardText.className = "card-img-overlay";
+  divWithCardClass.appendChild(divWithCardText);
+
+  let cardTitle = document.createElement("h1");
+  cardTitle.className = "card-title text-center";
+  cardTitle.textContent = getMountainName();
+  divWithCardText.appendChild(cardTitle);
+
+  let cardDescriptionText = document.createElement("h6");
+  cardDescriptionText.className = "card-text text-center";
+  cardDescriptionText.textContent = getMountainDescription();
+  divWithCardText.appendChild(cardDescriptionText);
+
+  let cardElevationText = document.createElement("h6");
+  cardElevationText.className = "card-text text-center";
+  cardElevationText.textContent = "Elevation: " + getMountainElevation();
+  divWithCardText.appendChild(cardElevationText);
+
+  getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(
+    (data) => {
+      mountainInfo.innerHTML +=
+        "<br><span class='fw-bold'>Sunrise Time: </span>" +
+        data.results.sunrise +
+        "<br><span class='fw-bold'>Sunset Time: </span>" +
+        data.results.sunset;
+    }
+  );
+}
+
+function getMountainImg() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  let mountainDropdownValue = mountainDropdown.value;
+
+  for (let mountain of mountainsArray) {
+    if (mountainDropdownValue == mountain.name) {
+      return mountain.img;
+    }
+  }
+}
+
+function getMountainName() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  let mountainDropdownValue = mountainDropdown.value;
+
+  for (let mountain of mountainsArray) {
+    if (mountainDropdownValue == mountain.name) {
+      return mountain.name;
+    }
+  }
+}
+
+function getMountainDescription() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  let mountainDropdownValue = mountainDropdown.value;
+
+  for (let mountain of mountainsArray) {
+    if (mountainDropdownValue == mountain.name) {
+      return mountain.desc;
+    }
+  }
+}
+
+function getMountainElevation() {
+  const mountainDropdown = document.getElementById("mountainDropdown");
+  let mountainDropdownValue = mountainDropdown.value;
+
+  for (let mountain of mountainsArray) {
+    if (mountainDropdownValue == mountain.name) {
+      return mountain.elevation;
+    }
+  }
+}
+
+function getSunsetforMountain() {
+  getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(
+    (data) => {
+      mountainInfo.innerHTML +=
+        "<br><span class='fw-bold'>Sunrise Time: </span>" +
+        data.results.sunrise +
+        "<br><span class='fw-bold'>Sunset Time: </span>" +
+        data.results.sunset;
+    }
+  );
+}
