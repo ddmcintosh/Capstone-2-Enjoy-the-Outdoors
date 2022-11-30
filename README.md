@@ -60,3 +60,22 @@ In order to collaborate with my project you can do so on github.
 ## FAQS
 
 <b> I have an extra parks page. The functional page is the parks.html page that have the fully functional javascript. However, I created the extranationalpark.html to attempt to create a page with radio buttons and do javascript that would hide and display the radio buttons, but I was not able to do so.
+
+
+
+let searchByNationalPark = document.getElementById("searchByNationalPark");
+
+  searchByNationalPark.length = 0;
+
+  let option = document.createElement("option");
+  option.value = "";
+  option.textContent = "View all Parks";
+  searchByNationalPark.appendChild(option);
+
+  for (let locationName of nationalParksArray) {
+    let nationalParkOption = document.createElement("option");
+    nationalParkOption.value = locationName;
+    nationalParkOption.textContent = locationName;
+    searchByNationalPark.appendChild(nationalParkOption);
+  }
+}
